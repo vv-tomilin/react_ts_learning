@@ -1,27 +1,46 @@
-import React from 'react';
-import Card, { CardVariant } from './components/Card';
-import UserList from './components/UserList';
-import { IUser } from './types/types';
+import { FC } from 'react';
+import { BrowserRouter as Router, NavLink, Route } from 'react-router-dom';
 
-const App = () => {
+import UserPage from './components/UserPage';
+import TodosPage from './components/TodosPage';
+import ExamplesPage from './components/ExamplesPage';
+import UserItemPage from './components/UserItemPage';
+import TodoItemPage from './components/TodoItemPage';
 
-  const users: IUser[] = [
-    { id: 1, name: 'Bob', email: 'email.bob@email.com', address: { city: 'London', street: 'BrowRoad 456', zipcode: '456879' } },
-    { id: 2, name: 'Lena', email: 'email.lena@email.com', address: { city: 'Moscow', street: 'Frunze', zipcode: '112354' } }
-  ];
+const App: FC = () => {
 
   return (
-    <div>
-      <Card
-        width='150px'
-        height='150px'
-        variant={CardVariant.outlined}
-        onClick={() => console.log('click')}>
-        <button>Button</button>
-      </Card>
-      <UserList
-        users={users} />
-    </div>
+    <Router>
+      <div>
+        <div style={{ marginBottom: 45 }}>
+          <div>
+            <NavLink to='/users'>Пользователи</NavLink>
+          </div>
+          <div>
+            <NavLink to='/todos'>Список дел</NavLink>
+          </div>
+          <div>
+            <NavLink to='/examples'>Прочее</NavLink>
+          </div>
+        </div>
+
+        <Route exact path={'/users'}>
+          <UserPage />
+        </Route>
+        <Route exact path={'/todos'}>
+          <TodosPage />
+        </Route>
+        <Route exact path={'/examples'}>
+          <ExamplesPage />
+        </Route>
+        <Route path={'/users/:id'}>
+          <UserItemPage />
+        </Route>
+        <Route path={'/todos/:id'}>
+          <TodoItemPage />
+        </Route>
+      </div>
+    </Router>
   );
 }
 
