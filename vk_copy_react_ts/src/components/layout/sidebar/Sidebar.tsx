@@ -1,8 +1,14 @@
 import React from 'react';
 
+import UserItem from './UserItems';
+import Menu from './Menu';
+
 const Sidebar: React.FC = () => {
   return (
-    <div>Sidebar</div>
+    <div>
+      <UserItem />
+      <Menu />
+    </div>
   )
 };
 
