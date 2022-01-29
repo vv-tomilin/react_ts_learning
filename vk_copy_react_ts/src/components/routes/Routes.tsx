@@ -20,7 +20,7 @@ const Routes: React.FC = () => {
           return (
             <Route
               path={route.path}
-              //exact={route.exact}
+              exact={route.exact}
               key={`route ${route.path}`}
             >
               <Layout>

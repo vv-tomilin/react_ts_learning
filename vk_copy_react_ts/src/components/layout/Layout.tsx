@@ -10,7 +10,7 @@ const Layout: React.FC = ({ children }) => {
     <>
       <Header />
 
-      <Grid container spacing={2} marginX={1} marginTop={2}>
+      <Grid container spacing={2} paddingX={1} marginTop={2}>
         <Grid item md={3.5}>
           <Sidebar />
         </Grid>
