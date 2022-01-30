@@ -1,5 +1,6 @@
 import { SvgIconTypeMap } from '@mui/material';
 import { OverridableComponent } from '@mui/material/OverridableComponent';
+import { Auth } from 'firebase/auth';
 import { Dispatch, SetStateAction } from 'react';
 
 export type TypeSetState<T> = Dispatch<SetStateAction<T>>;
@@ -8,7 +9,7 @@ export interface IUser {
   id: string,
   avatar: string,
   name: string,
-  isOnline: boolean
+  isOnline?: boolean
 }
 
 export interface IPost {
@@ -27,4 +28,10 @@ export interface IMenuItem {
 export interface IUserData {
   email: string,
   password: string
+}
+
+export interface IContext {
+  user: IUser | null,
+  setUser: TypeSetState<IUser | null>,
+  getauth: Auth
 }

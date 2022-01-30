@@ -1,5 +1,7 @@
 import React from 'react';
 
+import { useAuth } from '../../hooks/useAuth';
+
 import Layout from '../layout/Layout';
 
 import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
@@ -7,13 +9,13 @@ import { routes } from './list';
 
 const Routes: React.FC = () => {
 
-  const isAuth = true;
+  const { user } = useAuth();
 
   return (
     <Router>
       <Switch>
         {routes.map((route) => {
-          if (route.auth && !isAuth) {
+          if (route.auth && !user) {
             return false
           }
 
