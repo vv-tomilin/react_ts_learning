@@ -16,6 +16,7 @@ const Posts: React.FC<IPosts> = ({ posts }) => {
     <>
       {posts.map((post) => (
         <Box
+          key={post.createdAt}
           sx={{
             border: '1px solid #ccc',
             borderRadius: '10px',

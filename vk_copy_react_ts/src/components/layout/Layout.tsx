@@ -10,11 +10,19 @@ const Layout: React.FC = ({ children }) => {
     <>
       <Header />
 
-      <Grid container spacing={2} paddingX={1} marginTop={2}>
-        <Grid item md={3.5}>
+      <Grid
+        container
+        spacing={2}
+        justifyContent='space-around'
+        marginTop={2}>
+        <Grid
+          item
+          md={3.5}>
           <Sidebar />
         </Grid>
-        <Grid item md={8}>
+        <Grid
+          item
+          md={8}>
           {children}
         </Grid>
       </Grid>

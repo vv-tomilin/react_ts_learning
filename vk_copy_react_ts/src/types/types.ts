@@ -23,3 +23,8 @@ export interface IMenuItem {
   link: string
   icon: OverridableComponent<SvgIconTypeMap>
 }
+
+export interface IUserData {
+  email: string,
+  password: string
+}
